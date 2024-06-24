@@ -194,91 +194,91 @@ const Product = () => {
     }
   }, [user, userProfile, router]);
 
-  useEffect(() => {
-    const unsubProduct = onSnapshot(
-      collection(db, "products"),
-      (snapshot) => {
-        let list = [];
-        snapshot.docs.forEach((doc) => {
-          list.push({ id: doc.id, ...doc.data() });
-        });
+  // useEffect(() => {
+  //   const unsubProduct = onSnapshot(
+  //     collection(db, "products"),
+  //     (snapshot) => {
+  //       let list = [];
+  //       snapshot.docs.forEach((doc) => {
+  //         list.push({ id: doc.id, ...doc.data() });
+  //       });
 
-        const isNewAssetAdded = list.length === data.length;
-        if (isNewAssetAdded) {
-          setNewAssetNotification(true);
-          setAssetNotification(false);
-        } else {
-          setNewAssetNotification(false);
-          setAssetNotification(true);
-        }
+  //       const isNewAssetAdded = list.length === data.length;
+  //       if (isNewAssetAdded) {
+  //         setNewAssetNotification(true);
+  //         setAssetNotification(false);
+  //       } else {
+  //         setNewAssetNotification(false);
+  //         setAssetNotification(true);
+  //       }
 
-        setData(list);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-    return () => {
-      unsubProduct();
-    };
-  }, [data.length]);
+  //       setData(list);
+  //     },
+  //     (error) => {
+  //       console.log(error);
+  //     }
+  //   );
+  //   return () => {
+  //     unsubProduct();
+  //   };
+  // }, [data.length]);
 
-  const filteredData =
-    data && categoryFilter === "all"
-      ? data
-      : data.filter(
-          (product) => product.category.toLowerCase() === categoryFilter
-  );
+  // const filteredData =
+  //   data && categoryFilter === "all"
+  //     ? data
+  //     : data.filter(
+  //         (product) => product.category.toLowerCase() === categoryFilter
+  // );
 
-  const handleSearchInputChange = (e) => {
-    setSearchInput(e.target.value.toLowerCase());
-  };
+  // const handleSearchInputChange = (e) => {
+  //   setSearchInput(e.target.value.toLowerCase());
+  // };
 
-  useEffect(() => {
-    const selectElement = document.querySelector(".select");
-    selectElement.childNodes.forEach((option) => {
-      if (option.value.toLowerCase().includes(searchInput)) {
-        option.selected = true;
-      }
-    });
-    setCategoryFilter(searchInput);
-  }, [searchInput]);
+  // useEffect(() => {
+  //   const selectElement = document.querySelector(".select");
+  //   selectElement.childNodes.forEach((option) => {
+  //     if (option.value.toLowerCase().includes(searchInput)) {
+  //       option.selected = true;
+  //     }
+  //   });
+  //   setCategoryFilter(searchInput);
+  // }, [searchInput]);
 
-  useEffect(() => {
-    const notificationTimeout = setTimeout(() => {
-      setNewAssetNotification(false);
-    }, 5000);
-    return () => clearTimeout(notificationTimeout);
-  }, [newAssetNotification]);
+  // useEffect(() => {
+  //   const notificationTimeout = setTimeout(() => {
+  //     setNewAssetNotification(false);
+  //   }, 5000);
+  //   return () => clearTimeout(notificationTimeout);
+  // }, [newAssetNotification]);
 
-  useEffect(() => {
-    const notificationTimeout = setTimeout(() => {
-      setAssetNotification(false);
-    }, 5000);
-    return () => clearTimeout(notificationTimeout);
-  }, [AssetNotification]);
+  // useEffect(() => {
+  //   const notificationTimeout = setTimeout(() => {
+  //     setAssetNotification(false);
+  //   }, 5000);
+  //   return () => clearTimeout(notificationTimeout);
+  // }, [AssetNotification]);
 
-  const handleAddToCart = async (product) => {
-    addToCart(product);
+  // const handleAddToCart = async (product) => {
+  //   addToCart(product);
 
-    try {
-      await addDoc(collection(db, "historypayments"), {
-        userId: user.uid,
-        productId: product.id,
-        title: product.title,
-        price: product.price,
-        timestamp: new Date(),
-      });
-      console.log("Product added to historypayments:", product);
-    } catch (error) {
-      console.error("Error adding to history:", error);
-    }
-  };
+  //   try {
+  //     await addDoc(collection(db, "historypayments"), {
+  //       userId: user.uid,
+  //       productId: product.id,
+  //       title: product.title,
+  //       price: product.price,
+  //       timestamp: new Date(),
+  //     });
+  //     console.log("Product added to historypayments:", product);
+  //   } catch (error) {
+  //     console.error("Error adding to history:", error);
+  //   }
+  // };
 
   return (
     <div>
       <NavbarGudang />
-      <div className="p-8 md:p-24 mt-10">
+      {/* <div className="p-8 md:p-24 mt-10">
         <div className="flex justify-between mb-10">
           <h2 className="text-3xl mb-3">All Products</h2>
           {AssetNotification && (
@@ -328,6 +328,28 @@ const Product = () => {
             />
           ))}
         </div>
+      </div> */}
+            <div className="relative mt-20 md:mt-44">
+        {/* <Image
+          src={"/assets/kbbLogo.jpeg"}
+          width={1410 / 2}
+          height={675 / 2}
+          priority
+          sizes="(max-width: 768px) 600px, 1410px"
+          alt="about page"
+          className="relative w-full h-[600px] md:h-screen object-cover object-center mx-auto"
+        /> */}
+        {/* <div className="absolute top-20 left-1/2 -translate-x-1/2 text-center flex flex-col gap-3">
+          <h1 className="text-5xl font-extrabold text-gray-950">Price List Product</h1>
+        </div> */}
+      </div>
+      <div className="p-8 md:p-24 flex flex-col gap-6 text-justify">
+        <h2 className="font-bold text-3xl text-center md:text-left">1. Karila Pandan Wangi Premium</h2>
+        <p>Beras dengan campuran pandan wangi dan menir yang tersedia kemasan dari 3kg sampai 50kg
+        Campuran 3:1 pandan wangi dan muncul</p>
+        <h2 className="font-bold text-3xl text-center md:text-left">2. Karila Ramos</h2>
+        <p>Beras dengan campuran ramos dan menir yang tersedia kemasan dari 3kg sampai 50 kg
+        Campuran 4:1 ramos dan menir</p>
       </div>
       <Footer />
     </div>

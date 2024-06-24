@@ -212,6 +212,7 @@
 
 "use client";
 import useAuth from "@/app/hooks/useAuth";
+import Footer from "@/components/Footer";
 import NavbarAdmin from "@/components/NavbarAdmin";
 import { db, storage } from "@/firebase/firebase";
 import {
@@ -415,6 +416,7 @@ const Purchase = () => {
           </tbody>
         </table>
       </div>
+      <Footer/>
     </div>
   );
 };

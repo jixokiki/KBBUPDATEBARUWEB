@@ -15,7 +15,7 @@ const NavbarAdmin = () => {
   return (
     <>
       <nav className="bg-white flex justify-between items-center px-4 md:px-8 w-full md:w-11/12 h-20 shadow-md mx-auto rounded-none md:rounded-2xl border fixed top-0 md:top-5 left-1/2 -translate-x-1/2 z-40">
-        <h1 className="text-3xl font-bold text-gray-900">ADMIN</h1>
+        <h1 className="text-3xl font-bold text-gray-900">MARKETING</h1>
         <div className="block md:hidden" onClick={toggleMenu}>
           <FaBars size={35} />
         </div>

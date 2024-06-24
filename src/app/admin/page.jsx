@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import useAuth from "../hooks/useAuth";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import Footer from "@/components/Footer";
 
 const Admin = () => {
   const { user, userProfile } = useAuth();
@@ -21,6 +22,7 @@ const Admin = () => {
     }
   }, [user, userProfile, router]);
   return (
+    <div>
     <div className="flex justify-center items-center h-screen">
       <NavbarAdmin />
       <div className="flex flex-col items-center">
@@ -30,9 +32,11 @@ const Admin = () => {
           height={1125 / 4}
           alt="Logo"
         />
-        <h1 className="text-3xl">Welcome To Admin Page</h1>
-        {adminName && <p>Admin: {adminName}</p>}
+        <h1 className="text-3xl">Welcome To Marketing Page</h1>
+        {adminName && <p>Marketing: {adminName}</p>}
       </div>
+    </div>
+    <Footer/>
     </div>
   );
 };

@@ -1,5 +1,6 @@
 "use client";
 import useAuth from "@/app/hooks/useAuth";
+import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { db, storage } from "@/firebase/firebase";
 import {
@@ -131,7 +132,7 @@ const Purchase = () => {
     <div className="w-[100%] mx-auto mt-32">
       <Navbar />
       <div className="w-[90%] flex justify-center items-center gap-3 mb-10">
-        <h1 className="text-3xl font-semibold mb-3">Request Order Form</h1>
+        <h1 className="text-3xl font-semibold mb-3">Form Pemesanan</h1>
       </div>
       <div className="w-[90%] mx-auto">
         <form onSubmit={handleAddPurchase}>
@@ -222,6 +223,7 @@ const Purchase = () => {
           </div>
         </form>
       </div>
+      <Footer/>
     </div>
   );
 };

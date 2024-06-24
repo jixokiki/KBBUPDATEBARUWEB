@@ -19,11 +19,11 @@ const NavbarGudang = () => {
         <div className="block md:hidden" onClick={toggleMenu}>
           <FaBars size={35} />
         </div>
-        <ul className={`text-lg font-semibold text-gray-900 hidden md:flex`}>
+        <ul className={`text-lg md:mr-20 font-semibold text-gray-900 hidden md:flex`}>
           <li className="md:mr-3">
             <Link
               href={"/gudang"}
-              className="px-4 py-3  transition-all duration-300 hover:bg-teal-500 hover:text-white rounded"
+              className="px-14 py-3  transition-all duration-300 hover:bg-teal-500 hover:text-white rounded"
             >
               Dashboard
             </Link>
@@ -31,48 +31,48 @@ const NavbarGudang = () => {
           <li className="md:mr-3">
             <Link
               href={"/gudang/products"}
-              className="px-4 py-3  transition-all duration-300 hover:bg-teal-500 hover:text-white rounded"
+              className="px-14 py-3  transition-all duration-300 hover:bg-teal-500 hover:text-white rounded"
             >
-              Products
-            </Link>
-          </li>
-          <li className="md:mr-3">
-            <Link
-              href={"/gudang/desain"}
-              className="px-4 py-3  transition-all duration-300 hover:bg-teal-500 hover:text-white rounded"
-            >
-              Paddy
+              BOM
             </Link>
           </li>
           <li className="md:mr-3">
             <Link
               href={"/gudang/payments"}
-              className="px-4 py-3  transition-all duration-300 hover:bg-teal-500 hover:text-white rounded"
+              className="px-14 py-3  transition-all duration-300 hover:bg-teal-500 hover:text-white rounded"
             >
-              Bukti Payments
+              Pesanan
             </Link>
           </li>
           <li className="md:mr-3">
+            <Link
+              href={"/gudang/products"}
+              className="px-14 py-3  transition-all duration-300 hover:bg-teal-500 hover:text-white rounded"
+            >
+              Bahan Baku
+            </Link>
+          </li>
+          {/* <li className="md:mr-3">
             <Link
               href={"/gudang/services"}
               className="px-4 py-3  transition-all duration-300 hover:bg-teal-500 hover:text-white rounded"
             >
               Service
             </Link>
-          </li>
-          <li className="md:mr-3">
+          </li> */}
+          {/* <li className="md:mr-3">
             <Link
               href={"/gudang/users"}
               className="px-4 py-3  transition-all duration-300 hover:bg-teal-500 hover:text-white rounded"
             >
               Users
             </Link>
-          </li>
+          </li> */}
           <li>
             <Link
               href={"/sign-in"}
               onClick={handleLogout}
-              className="px-4 py-3 transition-all duration-500 bg-teal-500 text-white hover:bg-teal-800 rounded hover:text-white"
+              className="px-10 py-3 transition-all duration-500 bg-teal-500 text-white hover:bg-teal-800 rounded hover:text-white"
             >
               Logout
             </Link>

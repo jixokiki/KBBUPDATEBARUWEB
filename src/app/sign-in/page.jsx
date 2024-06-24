@@ -7,7 +7,9 @@ import useNavigation from "../hooks/useNavigation";
 import Navbar from "@/components/Navbar";
 import Link from "next/link";
 import { useState } from "react";
+import Image from "next/image";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
+import Footer from "@/components/Footer";
 
 const SignIn = () => {
   const router = useRouter();
@@ -91,7 +93,15 @@ const SignIn = () => {
 
   return (
     <div className="mt-10">
-      <Navbar />
+      {/* <Navbar /> */}
+      <Image
+  src={"/assets/kbbLogo.jpeg"}
+  width={200}
+  height={133}
+  className="relative w-90 max-w-xl mx-auto rounded-xl p-3 md:shadow-lg"
+  // alt="Home Page"
+  // priority
+/>
       <div className="py-24">
         <form
           onSubmit={handleSubmit}
@@ -159,6 +169,7 @@ const SignIn = () => {
           </p>
         </form>
       </div>
+      <Footer/>
     </div>
   );
 };
